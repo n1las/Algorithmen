@@ -2,7 +2,7 @@ package Woche1;
 
 public class Wachstum {
 
-    /* dieses Programm wurde mit Ki geschrieben */
+
     public static void main(String[] args) {
         int[] zahlen = {10, 20, 30, 40, 50, 60};
 

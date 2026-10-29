@@ -1,15 +1,19 @@
 package Woche1;
 
+
 public class LinearSearch {
     static void main(String[] args) {
         // A) Allgemeine Integer-Arrays (Suche nach einer ganzen Zahl, z. B. 42)
-        int[] arrVorne = {42, 5, 12, 99, 3, 17};
-        int[] arrHinten = {5, 12, 99, 3, 17, 42};
-        int[] arrNichtDa = {5, 12, 99, 3, 17, 88};
+
+
+        int[] arrVorne = RandomArray.erstelleIntVorne(1000, 42);
+        int[] arrHinten = RandomArray.erstelleIntHinten(1000, 42);
+        int[] arrNichtDa = RandomArray.erstelleArrayOne(1000);
 
         // B) Binär-Arrays (Nur Nullen und Einsen, Suche nach der ersten 0)
-        int[] binVorne = {0, 1, 1, 1, 1};
-        int[] binHinten = {1, 1, 1, 1, 0};
+        int[] binVorne = RandomArray.erstelleBinaerVorne(1000);
+        int[] binHinten = RandomArray.erstelleBinaerHinten(1000);
+
 
         linearSearch(arrVorne, 42);
         linearSearch(arrHinten, 42);
