@@ -30,7 +30,11 @@ public class RandomArray {
         int[] arr = new int[n];
         arr[0] = gesucht;
         for (int i = 1; i < n; i++) {
-            arr[i] = i; // Einfache Füllzahlen
+            if (i == gesucht) {
+                arr[i] = gesucht + 1;
+            } else {
+                arr[i] = i; // Einfache Füllzahlen
+            }
         }
         return arr;
     }
@@ -39,7 +43,11 @@ public class RandomArray {
     public static int[] erstelleIntHinten(int n, int gesucht) {
         int[] arr = new int[n];
         for (int i = 0; i < n - 1; i++) {
-            arr[i] = i;
+            if (i == gesucht) {
+                arr[i] = gesucht + 1;
+            } else {
+                arr[i] = i;
+            }
         }
         arr[n - 1] = gesucht; // Letztes Element ist der Treffer
         return arr;

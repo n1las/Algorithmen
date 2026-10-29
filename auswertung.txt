@@ -1,0 +1,13 @@
+Notizen zur Auswertung Blatt 1:
+
+1. Lineare Suche:
+- Vorne (Best Case): Immer ca. 150-250 ns, egal wie groß n ist -> O(1), wie erwartet.
+- Hinten / Nicht da (Worst Case): Zeit steigt linear mit n (n=10: ~300 ns, n=10.000: ~115 µs) -> O(n), wie erwartet.
+- Unterschied normales vs. Binär-Array: Kein wirklicher Unterschied, da beides int[] sind und der gleiche Code läuft.
+
+2. Sortieren (BubbleSort & SelectionSort):
+- Beide wachsen quadratisch: Bei n=10 nur ~2,5 µs, bei n=10.000 schon ca. 50-90 ms -> O(n^2), wie erwartet.
+- SelectionSort ist ab n=100 etwa doppelt so schnell wie BubbleSort, weil es viel weniger Vertauschungen im Speicher machen muss (nur 1 Tausch pro Runde statt ständiges Hin- und Hertauschen).
+
+Fazit:
+Ja, alle Ergebnisse entsprechen genau den theoretischen Erwartungen.

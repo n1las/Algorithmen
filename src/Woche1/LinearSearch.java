@@ -2,27 +2,43 @@ package Woche1;
 
 
 public class LinearSearch {
-    static void main(String[] args) {
-        // A) Allgemeine Integer-Arrays (Suche nach einer ganzen Zahl, z. B. 42)
+    public static void main(String[] args) {
+        int[] groessen = {10, 100, 1000, 10000};
 
+        for (int n : groessen) {
+            System.out.println("--- Messungen fuer n = " + n + " ---");
 
-        int[] arrVorne = RandomArray.erstelleIntVorne(1000, 42);
-        int[] arrHinten = RandomArray.erstelleIntHinten(1000, 42);
-        int[] arrNichtDa = RandomArray.erstelleArrayOne(1000);
+            // A) Allgemeine Integer-Arrays (Suche nach einer ganzen Zahl, z. B. 42)
+            int[] arrVorne = RandomArray.erstelleIntVorne(n, 42);
+            int[] arrHinten = RandomArray.erstelleIntHinten(n, 42);
+            int[] arrNichtDa = RandomArray.erstelleArrayOne(n);
 
-        // B) Binär-Arrays (Nur Nullen und Einsen, Suche nach der ersten 0)
-        int[] binVorne = RandomArray.erstelleBinaerVorne(1000);
-        int[] binHinten = RandomArray.erstelleBinaerHinten(1000);
+            // B) Binär-Arrays (Nur Nullen und Einsen, Suche nach der ersten 0)
+            int[] binVorne = RandomArray.erstelleBinaerVorne(n);
+            int[] binHinten = RandomArray.erstelleBinaerHinten(n);
 
+            System.out.print("Int Vorne: ");
+            linearSearch(arrVorne, 42);
+            System.out.print("Int Hinten: ");
+            linearSearch(arrHinten, 42);
+            System.out.print("Int Nicht da: ");
+            linearSearch(arrNichtDa, 42);
 
-        linearSearch(arrVorne, 42);
-        linearSearch(arrHinten, 42);
-        linearSearch(arrNichtDa, 42);
-        linearSearch(binVorne, 0);
-        linearSearch(binHinten, 0);
+            System.out.print("Binaer Vorne: ");
+            linearSearch(binVorne, 0);
+            System.out.print("Binaer Hinten: ");
+            linearSearch(binHinten, 0);
 
-        bubbleSort(arrVorne);
-        selectionSort(arrVorne);
+            // C) Sortieren auf Zufallsarrays
+            int[] sortArr1 = RandomArray.erstelleZufaelligesArray(n);
+            int[] sortArr2 = RandomArray.erstelleZufaelligesArray(n);
+
+            System.out.print("BubbleSort: ");
+            bubbleSort(sortArr1);
+            System.out.print("SelectionSort: ");
+            selectionSort(sortArr2);
+            System.out.println();
+        }
     }
 
     public static void linearSearch(int[] arr, int target) {
@@ -85,9 +101,12 @@ public class LinearSearch {
 
     public static void printSortResult(long time, int[] sorted) {
         System.out.println("Array wurde in " + time + "ns" + " sortiert");
-        for(int i: sorted) {
-            System.out.print(i + " ");
+        // Nur bei kleinen Arrays ausgeben, damit die Konsole lesbar bleibt
+        if (sorted.length <= 20) {
+            for(int i: sorted) {
+                System.out.print(i + " ");
+            }
+            System.out.println();
         }
-        System.out.println();
     }
 }
