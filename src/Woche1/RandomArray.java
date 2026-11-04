@@ -53,6 +53,23 @@ public class RandomArray {
         return arr;
     }
 
+    // 5. Normales Array: Gesuchte Zahl (gesucht) sitzt an einer zufälligen Position
+    public static int[] erstelleIntRandom(int n, int gesucht) {
+        int[] arr = new int[n];
+        Random rand = new Random();
+        int randomPos = rand.nextInt(n);
+
+        for (int i = 0; i < n; i++) {
+            if (i == gesucht) {
+                arr[i] = gesucht + 1;
+            } else {
+                arr[i] = i;
+            }
+        }
+        arr[randomPos] = gesucht;
+        return arr;
+    }
+
     public static int[] erstelleZufaelligesArray(int n) {
         int[] arr = new int[n];
         Random rand = new Random();

@@ -3,7 +3,7 @@ package Woche1;
 
 public class LinearSearch {
     public static void main(String[] args) {
-        int[] groessen = {10, 100, 1000, 10000};
+        int[] groessen = {10, 100, 1000, 10000, 100000};
 
         for (int n : groessen) {
             System.out.println("--- Messungen fuer n = " + n + " ---");
@@ -11,6 +11,7 @@ public class LinearSearch {
             // A) Allgemeine Integer-Arrays (Suche nach einer ganzen Zahl, z. B. 42)
             int[] arrVorne = RandomArray.erstelleIntVorne(n, 42);
             int[] arrHinten = RandomArray.erstelleIntHinten(n, 42);
+            int[] arrRandom = RandomArray.erstelleIntRandom(n, 42);
             int[] arrNichtDa = RandomArray.erstelleArrayOne(n);
 
             // B) Binär-Arrays (Nur Nullen und Einsen, Suche nach der ersten 0)
@@ -21,6 +22,8 @@ public class LinearSearch {
             linearSearch(arrVorne, 42);
             System.out.print("Int Hinten: ");
             linearSearch(arrHinten, 42);
+            System.out.print("Int Random: ");
+            linearSearch(arrRandom, 42);
             System.out.print("Int Nicht da: ");
             linearSearch(arrNichtDa, 42);
 
