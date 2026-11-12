@@ -36,12 +36,12 @@ public class LinearTimeMedian {
         int[] medians = new int[numGroups];
 
         for (int i = 0; i < numGroups; i++) {
-            int start = i * 5;
+            int start = i * 5; // start index im array S
             int end = Math.min(start + 5, n); // Absicherung falls die letzte gruppe nicht 5 Elemente hat
-            int groupSize = end - start;
+            int groupSize = end - start; // ebenfalls absicherung falls gruopSize < 5
 
             int[] group = new int[groupSize];
-            System.arraycopy(S, start, group, 0, groupSize); //
+            System.arraycopy(S, start, group, 0, groupSize); // Quellsarr, quellStartIndex, zielarr, startindexZielarr, anzahl an elmenten
             Arrays.sort(group); // 5 Zahlen sortieren dauert quasi 0 ms
 
             // Die Mitte der 5er-Gruppe einsammeln
